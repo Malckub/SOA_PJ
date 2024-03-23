@@ -1,13 +1,13 @@
-package com.project.SOA_G2;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SoaG2Application {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SoaG2Application.class, args);
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }
