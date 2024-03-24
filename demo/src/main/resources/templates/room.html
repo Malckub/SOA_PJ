@@ -5,8 +5,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
- <p th:text="${Room.RoomID}" />
-    <p th:text="${Room.Type}" />
-     <p th:text="${Room.Price}" />
+ <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <!-- สามารถเพิ่ม column อื่น ๆ ตามต้องการได้ -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ro : ${Room}">
+                <td th:text="${ro.RoomID}">ID</td>
+                <td th:text="${ro.Type}">First Name</td>
+                <td th:text="{ro.Price}">Last Name</td>
+                <!-- สามารถเพิ่ม column อื่น ๆ ตามต้องการได้ -->
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
