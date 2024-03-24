@@ -17,7 +17,7 @@ public class roomcontroller {
 		this.roomRepository = roomRepository;
 	}
 
-	@GetMapping("/all")
+	@GetMapping
 	public String getAllRooms(Model model) {
 		model.addAttribute("Room",roomRepository.findAll());
 		return "room";
