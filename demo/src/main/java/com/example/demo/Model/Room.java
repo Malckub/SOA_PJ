@@ -20,12 +20,21 @@ public class Room {
     @Column(name = "Type")
     private String type;
     
+    @Column(name = "Describe")
+    private String descibe;
+    
     @Column(name = "Price")
     private String Price;
     // สร้างความสัมพันธ์กับ Entity RoomStatus
     @OneToOne
     @JoinColumn(name = "Status")
     private Roomstatus roomstatus;
+    
+    @Column(name = "room_size")
+    private int roomsize;
+    
+    @Column(name = "Person")
+    private int person;
 
 	public int getRoomId() {
 		return roomId;
@@ -51,9 +60,37 @@ public class Room {
 		this.roomstatus = roomstatus;
 	}
 
-	
+	public String getPrice() {
+		return Price;
+	}
 
-	
+	public void setPrice(String price) {
+		Price = price;
+	}
+
+	public int getRoomsize() {
+		return roomsize;
+	}
+
+	public void setRoomsize(int roomsize) {
+		this.roomsize = roomsize;
+	}
+
+	public int getPerson() {
+		return person;
+	}
+
+	public void setPerson(int person) {
+		this.person = person;
+	}
+
+	public String getDescibe() {
+		return descibe;
+	}
+
+	public void setDescibe(String descibe) {
+		this.descibe = descibe;
+	}
 
 	
 }
