@@ -28,8 +28,24 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "room_id", referencedColumnName = "RoomID")
     private Room room;
-
-	
+    
+    @Column(name = "price")
+	private int price;
+    
+    @Column(name = "name")
+    private String name;
+    
+    @Column(name = "phone")
+    private String phone;
+    
+    @Column(name = "email")
+    private String email;
+    
+    @Column(name = "amount")
+    private int amount;
+    
+    @Column(name = "date")
+    private int date;
 
 	public Integer getReservationId() {
 		return reservationId;
@@ -63,6 +79,53 @@ public class Reservation {
 		this.room = room;
 	}
 
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	public int getDate() {
+		return date;
+	}
+
+	public void setDate(int date) {
+		this.date = date;
+	}
 
 
 }        
