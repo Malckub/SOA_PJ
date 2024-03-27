@@ -24,7 +24,7 @@ public class Room {
     private String descibe;
     
     @Column(name = "Price")
-    private String Price;
+    private int Price;
     // สร้างความสัมพันธ์กับ Entity RoomStatus
     @OneToOne
     @JoinColumn(name = "Status")
@@ -60,11 +60,13 @@ public class Room {
 		this.roomstatus = roomstatus;
 	}
 
-	public String getPrice() {
+
+
+	public int getPrice() {
 		return Price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		Price = price;
 	}
 

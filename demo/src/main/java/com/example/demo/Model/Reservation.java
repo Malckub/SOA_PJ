@@ -15,37 +15,37 @@ import jakarta.persistence.Table;
 @Table(name = "reservation")
 public class Reservation {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservationId")
-    private Integer reservationId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "reservationId")
+	private Integer reservationId;
 
-    @Column(name = "checkin")
-    private Date checkin;
+	@Column(name = "checkin")
+	private Date checkin;
 
-    @Column(name = "checkout")
-    private Date checkout;
+	@Column(name = "checkout")
+	private Date checkout;
 
-    @ManyToOne
-    @JoinColumn(name = "room_id", referencedColumnName = "RoomID")
-    private Room room;
-    
-    @Column(name = "price")
-	private int price;
-    
-    @Column(name = "name")
-    private String name;
-    
-    @Column(name = "phone")
-    private String phone;
-    
-    @Column(name = "email")
-    private String email;
-    
-    @Column(name = "amount")
-    private int amount;
-    
-    @Column(name = "date")
-    private int date;
+	@ManyToOne
+	@JoinColumn(name = "room_id", referencedColumnName = "RoomID")
+	private Room room;
+
+	@Column(name = "price")
+	private float price;
+
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "phone")
+	private String phone;
+
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "amount")
+	private int amount;
+
+	@Column(name = "date")
+	private int date;
 
 	public Integer getReservationId() {
 		return reservationId;
@@ -77,14 +77,6 @@ public class Reservation {
 
 	public void setRoom(Room room) {
 		this.room = room;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
 	}
 
 	public String getName() {
@@ -127,5 +119,31 @@ public class Reservation {
 		this.date = date;
 	}
 
+	public float getPrice() {
+		return price;
+	}
 
-}        
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public Reservation() {
+		super();
+	}
+
+	public Reservation(Integer reservationId, Date checkin, Date checkout, Room room, float price, String name,
+			String phone, String email, int amount, int date) {
+		super();
+		this.reservationId = reservationId;
+		this.checkin = checkin;
+		this.checkout = checkout;
+		this.room = room;
+		this.price = price;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.amount = amount;
+		this.date = date;
+	}
+
+}
