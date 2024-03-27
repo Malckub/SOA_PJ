@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Model.Reservation;
 import com.example.demo.Model.ReservationDetail;
 import com.example.demo.Repository.ReservationDetailRepository;
-import com.example.demo.Repository.ReservationRepository;
 
 @RestController
 public class reservationdetailcontroller {
@@ -31,6 +29,7 @@ public class reservationdetailcontroller {
         return reservationdetailRepository.findAll();
     }
 	
+<<<<<<< Updated upstream
 	@PostMapping("/reservationdetail")
 	public ResponseEntity<ReservationDetail> createReservationDetail(@RequestBody ReservationDetail reservationDetail) {
 	    try {
@@ -42,4 +41,11 @@ public class reservationdetailcontroller {
 	}
 
 	
+=======
+	@PostMapping(value = "/reservationdetail/create", consumes = "application/json")
+	public ReservationDetail addReservationDetail(@RequestBody ReservationDetail reservationDetail) {
+		// ทำการเพิ่มข้อมูลการจองลงในฐานข้อมูล
+		return reservationdetail.save(reservationDetail);
+	}
+>>>>>>> Stashed changes
 }
