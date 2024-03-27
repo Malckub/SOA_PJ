@@ -1,7 +1,7 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Model.Room;
-import com.example.demo.Repository.RoomRepository;
+import com.example.demo.Model.Reservation;
+import com.example.demo.Repository.ReservationRepository;
 
 import java.util.List;
 
@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class roomcontroller {
+public class reservationcontroller {
 
-    private final RoomRepository roomRepository;
-  
+    private final ReservationRepository reservation;
     
     @Autowired
-    public roomcontroller(RoomRepository roomRepository) {
-        this.roomRepository = roomRepository;
+    public reservationcontroller(ReservationRepository reservationRepository) {
+        this.reservation = reservationRepository;
     }
-    @GetMapping("/room")
-    public List<Room> getRoomWithStatus() {
+    
+    @GetMapping("/reservation")
+    public List<Reservation> getAllreservation() {
         // ใช้เมธอด findByRoomId ใน Repository เพื่อหาข้อมูลห้องพร้อมสถานะ
-        return roomRepository.findAll();
+        return reservation.findAll();
     }
-    @GetMapping("/room/{roomId}")
-    public Room getRoomWithStatus(@PathVariable int roomId) {
+    @GetMapping("/reservation/{re_id}")
+    public Reservation getreservation(@PathVariable int  re_id) {
         // ใช้เมธอด findByRoomId ใน Repository เพื่อหาข้อมูลห้องพร้อมสถานะ
-        return roomRepository.findByRoomId(roomId);
+        return reservation.findByreservationId(re_id);
     }
 }
