@@ -29,7 +29,9 @@ public class Reservation {
     @JoinColumn(name = "room_id", referencedColumnName = "RoomID")
     private Room room;
 
-	
+    public Reservation(int reservationId) {
+        this.reservationId = reservationId;
+    }
 
 	public Integer getReservationId() {
 		return reservationId;

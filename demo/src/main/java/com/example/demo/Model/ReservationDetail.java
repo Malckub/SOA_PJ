@@ -26,7 +26,16 @@ public class ReservationDetail {
 	
 	@Column(name = "date")
 	public Date date;
-
+	
+	public ReservationDetail() {
+        // Default constructor
+    }
+	
+	public ReservationDetail(int reservationdetailId, Reservation reservation_id, Date date) {
+        this.reservationdetailId = reservationdetailId;
+        this.reservation_id = reservation_id;
+        this.date = date;
+    }
 
 	public Reservation getReservation_id() {
 		return reservation_id;
