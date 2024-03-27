@@ -16,8 +16,8 @@ import jakarta.persistence.Table;
 public class Reservation {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservationId")
-    private Integer reservationId;
+    @Column(name = "reservation_id")
+    private Integer reservation_id;
 
     @Column(name = "checkin")
     private Date checkin;
@@ -29,17 +29,23 @@ public class Reservation {
     @JoinColumn(name = "room_id", referencedColumnName = "RoomID")
     private Room room;
 
-    public Reservation(int reservationId) {
-        this.reservationId = reservationId;
+    public Reservation(int reservation_id) {
+        this.reservation_id = reservation_id;
     }
 
-	public Integer getReservationId() {
-		return reservationId;
+	
+
+	public Integer getReservation_id() {
+		return reservation_id;
 	}
 
-	public void setReservationId(Integer reservationId) {
-		this.reservationId = reservationId;
+
+
+	public void setReservation_id(Integer reservation_id) {
+		this.reservation_id = reservation_id;
 	}
+
+
 
 	public Date getCheckin() {
 		return checkin;

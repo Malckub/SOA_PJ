@@ -9,5 +9,7 @@ import com.example.demo.Model.ReservationDetail;
 @Repository
 public interface ReservationDetailRepository extends JpaRepository<ReservationDetail, Integer>{
 	
-	Reservation findByreservationdetailId(int reservationdetailId);
+//	Reservation findByreservationdetailId(int reservationdetailId);
+	ReservationDetail findByReservation_id(int reservationId);
+
 }
