@@ -38,6 +38,11 @@ public class reservationcontroller {
 		return reservation.findByreservationId(re_id);
 	}
 
+	@GetMapping("/reservation/{re_id}/{email}")
+	public Reservation getReservationByReservationIdAndEmail(@PathVariable int re_id, @PathVariable String email) {
+		return reservation.findByReservationIdAndEmail(re_id, email);
+	}
+
 	@PostMapping(value = "/reservation/create", consumes = "application/json")
 	public Reservation addReservation(@RequestBody Reservation reservation1) {
 		// ทำการเพิ่มข้อมูลการจองลงในฐานข้อมูล
