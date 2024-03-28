@@ -10,31 +10,31 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="room")
+@Table(name = "room")
 public class Room {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "RoomID")
-    private int roomId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "RoomID")
+	private int roomId;
 
-    @Column(name = "Type")
-    private String type;
-    
-    @Column(name = "Describe")
-    private String descibe;
-    
-    @Column(name = "Price")
-    private int Price;
-    // สร้างความสัมพันธ์กับ Entity RoomStatus
-    @OneToOne
-    @JoinColumn(name = "Status")
-    private Roomstatus roomstatus;
-    
-    @Column(name = "room_size")
-    private int roomsize;
-    
-    @Column(name = "Person")
-    private int person;
+	@Column(name = "Type")
+	private String type;
+
+	@Column(name = "Describe")
+	private String descibe;
+
+	@Column(name = "Price")
+	private int Price;
+	// สร้างความสัมพันธ์กับ Entity RoomStatus
+	@OneToOne
+	@JoinColumn(name = "Status")
+	private Roomstatus roomstatus;
+
+	@Column(name = "room_size")
+	private int roomsize;
+
+	@Column(name = "Person")
+	private int person;
 
 	public int getRoomId() {
 		return roomId;
@@ -59,8 +59,6 @@ public class Room {
 	public void setRoomstatus(Roomstatus roomstatus) {
 		this.roomstatus = roomstatus;
 	}
-
-
 
 	public int getPrice() {
 		return Price;
@@ -94,5 +92,4 @@ public class Room {
 		this.descibe = descibe;
 	}
 
-	
 }

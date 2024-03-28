@@ -10,7 +10,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
-    // เพิ่มเมธอดหาห้องจาก ID ของห้อง
+	// เพิ่มเมธอดหาห้องจาก ID ของห้อง
 	Reservation findByreservationId(int re_id);
-    Reservation findByReservationIdAndEmail(int reservationId, String email);
+
+	Reservation findByReservationIdAndEmail(int reservationId, String email);
+
+	void deleteById(int re_id);
 }

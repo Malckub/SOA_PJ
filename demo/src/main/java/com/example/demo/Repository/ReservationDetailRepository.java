@@ -7,7 +7,9 @@ import com.example.demo.Model.Reservation;
 import com.example.demo.Model.ReservationDetail;
 
 @Repository
-public interface ReservationDetailRepository extends JpaRepository<ReservationDetail, Integer>{
-	
-	Reservation findByreservationdetailId(int reservationdetailId);
+public interface ReservationDetailRepository extends JpaRepository<ReservationDetail, Integer> {
+
+	ReservationDetail findByreservationdetailId(int reservationdetailId);
+
+	void deleteById(int id);
 }

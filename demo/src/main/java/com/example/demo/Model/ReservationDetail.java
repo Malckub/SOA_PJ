@@ -15,17 +15,16 @@ import jakarta.persistence.Table;
 @Table(name = "reservationdetail")
 public class ReservationDetail {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservationdetailId")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "reservationdetailId")
 	public int reservationdetailId;
-	
+
 	@ManyToOne
-	@JoinColumn(name="reservation_id")
+	@JoinColumn(name = "reservation_id")
 	public Reservation reservation_id;
-	
+
 	@Column(name = "date")
 	public Date date;
-
 
 	public Reservation getReservation_id() {
 		return reservation_id;
@@ -50,6 +49,5 @@ public class ReservationDetail {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
+
 }
