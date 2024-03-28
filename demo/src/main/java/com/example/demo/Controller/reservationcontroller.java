@@ -8,12 +8,15 @@ import jakarta.transaction.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -55,5 +58,27 @@ public class reservationcontroller {
 
 		reservation.deleteById(re_id);
 	}
+	
+	@PutMapping("/reservation/{id}")
+    public ResponseEntity<?> updateReservation(@PathVariable int id, @RequestBody Reservation newReservation) {
+        Optional<Reservation> optionalReservation = reservation.findById(id);
+        if (optionalReservation.isPresent()) {
+            Reservation existingReservation = optionalReservation.get();
+            // ทำการอัปเดตข้อมูล Reservation จากข้อมูลใหม่ที่ส่งเข้ามา
+            existingReservation.setName(newReservation.getName());
+            existingReservation.setEmail(newReservation.getEmail());
+            existingReservation.setCheckin(newReservation.getCheckin());
+            existingReservation.setCheckout(newReservation.getCheckout());
+            existingReservation.setRoom(newReservation.getRoom());
+
+            // บันทึกการอัปเดต Reservation ในฐานข้อมูล
+            Reservation updatedReservation = reservation.save(existingReservation);
+            return ResponseEntity.ok(updatedReservation);
+        } else {
+            // ถ้าไม่พบ Reservation ที่ต้องการอัปเดต ส่งข้อความว่างคืนไป
+            return ResponseEntity.notFound().build();
+        }
+    }
+	
 
 }
